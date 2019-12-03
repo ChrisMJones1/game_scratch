@@ -1,0 +1,200 @@
+html {
+  box-sizing: border-box;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+#stage {
+  border: 1px solid #000;
+  height: 600px;
+  width: 405px;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  background-color: #885d83;
+  background: url('parallax-mountain-bg.png') no-repeat center center;
+  background-size: auto 100%;
+}
+#move_box {
+  position: absolute;
+  left: 200px;
+  bottom: 0;
+  width: 96px;
+  height: 25px;
+  transform-origin: bottom center;
+/*
+  background: url('volcano.png');
+  animation: shoot 0.4s steps(12) infinite;
+  transform: scale(3);
+  transform-origin: bottom left;
+*/
+}
+#volcano {
+  position: absolute;
+  bottom: 0;
+  width: 96px;
+  height: 96px;
+/*
+  background: url('volcano.png') no-repeat;
+  background-size: cover;
+*/
+/*  animation: shoot 0.4s steps(12) 1;*/
+/*  transform: scale(3);*/
+  transform-origin: bottom center;
+  z-index: 100;
+}
+.projectile_box {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  transform-origin: bottom left;
+/*  animation: projectile_move 5900ms linear;*/
+}
+#fire_stage {
+  border: 1px solid #000;
+  height: 300px;
+  width: 300px;
+  position: relative;
+  margin: auto;
+  background-color: black;
+}
+.fireball {
+  position: absolute;
+  width: 9px;
+  height: 68px;
+  background: url('Fireball_68x9.png') top left;
+  animation: play 0.4s steps(10) infinite, firey 2.4s steps(6) infinite;
+  transform: scale(3);
+  transform-origin: top center;
+}
+/*
+@keyframes shoot {
+  100% {
+    background-position-y: -384px;
+  }
+}
+*/
+@keyframes shoot {
+  50% {
+    transform: scale(2, 0.5);
+  }
+  75% {
+    transform: scale(0.75, 1.25);
+  }
+}
+@keyframes play {
+  100% {
+    background-position-y: -680px;
+  }
+}
+@keyframes firey {
+  100% {
+    background-position-x: -54px;
+  }
+}
+.run_flicker {
+  animation: damage_flicker 0.2s 5;
+}
+
+/*
+.volcano_shoot {
+  animation: shoot 0.4s steps(12) 1;
+}
+*/
+.volcano_shoot {
+  animation: shoot 0.4s 1;
+}
+
+.skew_right {
+  animation: skew_R 0.4s 1;
+}
+
+.skew_left {
+  animation: skew_L 0.4s 1;
+}
+
+@keyframes damage_flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes skew_R {
+  0% {
+    transform: skewX(0) /*scale(3)*/;
+    transform-origin: bottom center;
+  }
+  50% {
+    transform: skewX(50deg) /*scale(3)*/;
+    transform-origin: bottom center;
+  }
+  100% {
+    transform: skewX(0) /*scale(3)*/;
+    transform-origin: bottom center;
+  }
+}
+
+@keyframes skew_L {
+  0% {
+    transform: skewX(0) /*scale(3)*/;
+    transform-origin: bottom center;
+  }
+  50% {
+    transform: skewX(-50deg) /*scale(3)*/;
+    transform-origin: bottom center;
+  }
+  100% {
+    transform: skewX(0) /*scale(3)*/;
+    transform-origin: bottom center;
+  }
+}
+
+@keyframes magma_spin {
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+/*
+  75% {
+    transform: rotate(deg);
+  }
+*/
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/*
+@keyframes projectile_move {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: 600px;
+  }
+}
+*/
+
+.enemy_box {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: url('Magma_rock.png') top left;
+  background-size: cover;
+  transform-origin: center;
+  animation: magma_spin 1s infinite linear;
+}
+#skew_box {
+position: absolute;
+  bottom: 0;
+  width: 96px;
+  height: 25px;
+  transform-origin: bottom center;
+}
